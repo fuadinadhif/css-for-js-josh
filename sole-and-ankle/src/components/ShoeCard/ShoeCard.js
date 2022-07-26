@@ -35,9 +35,8 @@ const ShoeCard = ({
       <Wrapper>
         <ImageWrapper>
           <Image src={imageSrc} />
-          <Flag variant={variant}>
-            {variant === "new-release" ? "Just Released!" : "Sale"}
-          </Flag>
+          {variant === "on-sale" && <FlagSale>Sale</FlagSale>}
+          {variant === "new-release" && <FlagNew>Just Released!</FlagNew>}
         </ImageWrapper>
         <Row>
           <Name>{name}</Name>
@@ -45,7 +44,9 @@ const ShoeCard = ({
         </Row>
         <Row>
           <ColorInfo>{pluralize("Color", numOfColors)}</ColorInfo>
-          <SalePrice variant={variant}>{formatPrice(price)}</SalePrice>
+          {variant === "on-sale" ? (
+            <SalePrice>{formatPrice(price)}</SalePrice>
+          ) : undefined}
         </Row>
       </Wrapper>
     </Link>
@@ -72,17 +73,22 @@ const Image = styled.img`
 `;
 
 const Flag = styled.div`
-  display: ${(props) => (props.variant !== "default" ? "block" : "none")};
   position: absolute;
   top: 12px;
   right: -4px;
   padding: 8px 12px;
   border-radius: 2px;
-  background-color: ${(props) =>
-    props.variant === "on-sale" ? COLORS.primary : COLORS.secondary};
   color: ${COLORS.white};
   font-size: ${14 / 16}rem;
   font-weight: ${WEIGHTS.bold};
+`;
+
+const FlagSale = styled(Flag)`
+  background-color: ${COLORS.primary};
+`;
+
+const FlagNew = styled(Flag)`
+  background-color: ${COLORS.secondary};
 `;
 
 const Row = styled.div`
@@ -104,7 +110,7 @@ const Price = styled.span`
   color: ${(props) =>
     props.variant === "on-sale" ? COLORS.gray[700] : COLORS.gray[900]};
   font-weight: ${WEIGHTS.normal};
-  text-decoration-line: ${(props) =>
+  text-decoration: ${(props) =>
     props.variant === "on-sale" ? "line-through" : "none"};
 `;
 
@@ -114,7 +120,6 @@ const ColorInfo = styled.p`
 `;
 
 const SalePrice = styled.span`
-  display: ${(props) => (props.variant === "on-sale" ? "block" : "none")};
   color: ${COLORS.primary};
   font-weight: ${WEIGHTS.medium};
 `;
