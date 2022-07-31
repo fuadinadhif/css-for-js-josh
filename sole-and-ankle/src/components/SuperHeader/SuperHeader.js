@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { COLORS } from "../../constants";
+import { QUERIES } from "../../constants";
 import Icon from "../Icon";
 import UnstyledButton from "../UnstyledButton";
 import SearchInput from "../SearchInput";
@@ -27,13 +27,17 @@ const Wrapper = styled.div`
   gap: 24px;
   padding: 12px 32px;
   font-size: ${14 / 16}rem;
-  background-color: ${COLORS.gray[900]};
-  color: ${COLORS.gray[300]};
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-300);
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: none;
+  }
 `;
 
 const MarketingMessage = styled.p`
   margin-right: auto;
-  color: ${COLORS.white};
+  color: var(--color-white);
 `;
 
 const HelpLink = styled.a`

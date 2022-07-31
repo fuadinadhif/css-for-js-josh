@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { Search, Menu, ShoppingBag, ChevronDown } from "react-feather";
+import { Search, Menu, ShoppingBag, ChevronDown, X } from "react-feather";
 
 const icons = {
   search: Search,
   menu: Menu,
   "shopping-bag": ShoppingBag,
   "chevron-down": ChevronDown,
+  close: X,
 };
 
 const Icon = ({ name, color, size, strokeWidth }) => {

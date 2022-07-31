@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { COLORS } from "../../constants";
+import { QUERIES } from "../../constants";
 import Icon from "../Icon";
 
 const Select = ({ label, value, onChange, children }) => {
@@ -26,10 +26,14 @@ const Wrapper = styled.label`
   display: flex;
   align-items: center;
   gap: 16px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    display: none;
+  }
 `;
 
 const VisibleLabel = styled.span`
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
   font-size: ${16 / 16}rem;
   font-weight: 500;
 `;
@@ -53,8 +57,8 @@ const CustomSelect = styled.div`
   width: max-content;
   padding: 12px 10px 12px 16px;
   border-radius: 8px;
-  background: ${COLORS.gray[100]};
-  color: ${COLORS.gray[900]};
+  background: var(--color-gray-100);
+  color: var(--color-gray-900);
   font-size: ${16 / 16}rem;
   font-weight: 600;
   pointer-events: none;

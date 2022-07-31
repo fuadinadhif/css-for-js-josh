@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { formatPrice, pluralize, isNewShoe } from "../../utils";
-import { COLORS, WEIGHTS } from "../../constants";
+import { WEIGHTS } from "../../constants";
 
 const ShoeCard = ({
   slug,
@@ -78,17 +78,17 @@ const Flag = styled.div`
   right: -4px;
   padding: 8px 12px;
   border-radius: 2px;
-  color: ${COLORS.white};
+  color: var(--color-white);
   font-size: ${14 / 16}rem;
   font-weight: ${WEIGHTS.bold};
 `;
 
 const FlagSale = styled(Flag)`
-  background-color: ${COLORS.primary};
+  background-color: var(--color-primary);
 `;
 
 const FlagNew = styled(Flag)`
-  background-color: ${COLORS.secondary};
+  background-color: var(--color-secondary);
 `;
 
 const Row = styled.div`
@@ -102,25 +102,27 @@ const Row = styled.div`
 `;
 
 const Name = styled.h3`
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
 `;
 
 const Price = styled.span`
   color: ${(props) =>
-    props.variant === "on-sale" ? COLORS.gray[700] : COLORS.gray[900]};
+    props.variant === "on-sale"
+      ? "var(--color-gray-700)"
+      : "var(--color-gray-900)"};
   font-weight: ${WEIGHTS.normal};
   text-decoration: ${(props) =>
     props.variant === "on-sale" ? "line-through" : "none"};
 `;
 
 const ColorInfo = styled.p`
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
   font-weight: ${WEIGHTS.normal};
 `;
 
 const SalePrice = styled.span`
-  color: ${COLORS.primary};
+  color: var(--color-primary);
   font-weight: ${WEIGHTS.medium};
 `;
 

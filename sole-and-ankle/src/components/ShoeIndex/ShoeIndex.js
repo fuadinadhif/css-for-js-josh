@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { WEIGHTS } from "../../constants";
+import { QUERIES, WEIGHTS } from "../../constants";
 import Breadcrumbs from "../BreadCrumbs";
 import Select from "../Select";
 import ShoeSidebar from "../ShoeSidebar";
@@ -41,6 +41,11 @@ const ShoeIndex = () => {
 const Wrapper = styled.div`
   display: flex;
   gap: 32px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
 
 const MainColumn = styled.div`
@@ -49,6 +54,10 @@ const MainColumn = styled.div`
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    flex-basis: 0px;
+  }
 `;
 
 const Header = styled.div`

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { COLORS, WEIGHTS } from "../../constants";
+import { QUERIES, WEIGHTS } from "../../constants";
 
 const ShoeSidebar = () => {
   return (
@@ -23,18 +23,22 @@ const ShoeSidebar = () => {
   );
 };
 
-const Wrapper = styled.aside``;
+const Wrapper = styled.aside`
+  @media ${QUERIES.tabletAndSmaller} {
+    display: none;
+  }
+`;
 
 const Link = styled.a`
   display: block;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
   line-height: 2;
   text-decoration: none;
 `;
 
 const ActiveLink = styled(Link)`
-  color: ${COLORS.primary};
+  color: var(--color-primary);
 `;
 
 export default ShoeSidebar;

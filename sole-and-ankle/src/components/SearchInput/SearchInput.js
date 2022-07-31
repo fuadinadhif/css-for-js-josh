@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { COLORS } from "../../constants";
 import Icon from "../Icon";
 import VisuallyHidden from "../VisuallyHidden";
 
@@ -12,7 +11,7 @@ const SearchInput = ({ placeholder, width }) => {
       <IconWrapper>
         <Icon
           name="search"
-          color={COLORS.gray[300]}
+          color="var(--color-gray-300)"
           size={16}
           strokeWidth={1}
         ></Icon>
@@ -42,9 +41,9 @@ const TextInput = styled.input`
   width: var(--width);
   padding: 6px 6px 6px 24px;
   border: none;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--color-gray-300);
   background: transparent;
-  color: ${COLORS.gray[500]};
+  color: var(--color-gray-500);
   outline-offset: 2px;
 `;
 
